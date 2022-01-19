@@ -5,3 +5,10 @@
 
 <%= link_to "Edit", edit_book_path(@book.id) %>
 <%= link_to "Back", books_path %>
+
+<!-- メッセージ表示 -->
+<div class="flash">
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+</div>
