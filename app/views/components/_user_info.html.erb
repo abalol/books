@@ -1,0 +1,21 @@
+<h2>User info</h2>
+<table>
+<tr>
+  <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40 %></td>
+  <td></td>
+</tr>
+<tr>
+  <td>name</td>
+  <td><%= user.name %></td>
+</tr>
+<tr>
+  <td>introduction</td>
+  <td><%= user.introduction %></td>
+</tr>
+</table>
+
+<div class="mt-4 mb-4">
+  <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block fa' do %>
+    <i class=" fas fa-user-cog edit_user_50443"></i>
+  <% end %>
+</div>

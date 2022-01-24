@@ -1,14 +1,36 @@
-<h2>タイトル</h2>
-<p><%= @book.title %></p>
-<h2>本文</h2>
-<p><%= @book.body %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-3">
+          <%= render 'components/user_info', user: @book.user %>
+          <%= render 'components/new_book' %>
+        </div>
+        <div class="col-md-8 offset-md-1">
+          <h2>Book detail</h2>
+          <table class="books">
+          <tr>
+            <th class="book-title text-center">
+              <%= link_to user_path(@book.user.id), class: 'nav-link' do  %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 64, 64, format: 'jpeg', fallback: "no_image.jpg" %><br />
+                <%= @book.user.name %>
+              <% end %>
+            </th>
+            <th class="book-title">
+              <%= link_to show_book_path(@book.id), class: 'nav-link' do  %>
+                <%= @book.title %>
+              <% end %>
+            </th>
+            <th class="book-body"><%= @book.body %></th>
+            <% if user_signed_in? && @book.user.id === current_user.id %>
+                <th class="book-title">
+                  <%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-success' %>
+                </th>
+                <th class="book-title">
+                  <%= link_to "Destroy", destroy_book_path(@book.id), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に消しますか？" %>
+                </th>
+            <% end%>
+          </tr>
 
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Back", books_path %>
-
-<!-- メッセージ表示 -->
-<div class="flash">
-<% flash.each do |key, value| %>
-  <%= content_tag(:div, value, class: "#{key}") %>
-<% end %>
+        </table>
+        </div>
+    </div>
 </div>

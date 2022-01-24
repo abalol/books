@@ -45,7 +45,7 @@ describe '投稿のテスト' do
             # Destroyリンク
             show_link = find_all('a')[j+2]
             expect(show_link.native.inner_text).to match(/destroy/i)
-            expect(show_link[:href]).to eq destroy_book_path(book)
+            expect(show_link[:href]).to eq show_book_path(book)
           end
       end
       it 'Create Bookボタンが表示される' do
@@ -68,7 +68,7 @@ describe '投稿のテスト' do
         fill_in 'book[title]', with: Faker::Lorem.characters(number:5)
         fill_in 'book[body]', with: Faker::Lorem.characters(number:20)
         click_button 'Create Book'
-        expect(page).to have_current_path show_book_path(Book.last)
+        expect(page).to have_current_path book_path(Book.last)
       end
     end
     context 'book削除のテスト' do
@@ -94,7 +94,7 @@ describe '投稿のテスト' do
   end
   describe '詳細画面のテスト' do
     before do
-      visit show_book_path(book)
+      visit book_path(book)
     end
     context '表示の確認' do
       it '本のタイトルと感想が画面に表示されていること' do
@@ -173,7 +173,7 @@ describe '投稿のテスト' do
         fill_in 'book[title]', with: Faker::Lorem.characters(number:5)
         fill_in 'book[body]', with: Faker::Lorem.characters(number:20)
         click_button 'Update Book'
-        expect(page).to have_current_path show_book_path(book)
+        expect(page).to have_current_path book_path(book)
       end
     end
   end

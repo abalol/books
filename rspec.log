@@ -1,0 +1,271 @@
+
+投稿のテスト
+  トップ画面(root_path)のテスト
+    表示の確認
+[31m      トップ画面(root_path)に一覧ページへのリンクが表示されているか (FAILED - 1)[0m
+[32m      root_pathが"/"であるか[0m
+  一覧画面のテスト
+    一覧の表示とリンクの確認
+[31m      bookの一覧表示(tableタグ)と投稿フォームが同一画面に表示されているか (FAILED - 2)[0m
+[31m      bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか (FAILED - 3)[0m
+[31m      Create Bookボタンが表示される (FAILED - 4)[0m
+    投稿処理に関するテスト
+[31m      投稿に成功しサクセスメッセージが表示されるか (FAILED - 5)[0m
+[31m      投稿に失敗する (FAILED - 6)[0m
+[31m      投稿後のリダイレクト先は正しいか (FAILED - 7)[0m
+    book削除のテスト
+[32m      application.html.erbにjavascript_include_tagを含んでいるか[0m
+[31m      bookの削除 (FAILED - 8)[0m
+  詳細画面のテスト
+    表示の確認
+[31m      本のタイトルと感想が画面に表示されていること (FAILED - 9)[0m
+[31m      Editリンクが表示される (FAILED - 10)[0m
+[31m      Backリンクが表示される (FAILED - 11)[0m
+    リンクの遷移先の確認
+[31m      Editの遷移先は編集画面か (FAILED - 12)[0m
+[31m      Backの遷移先は一覧画面か (FAILED - 13)[0m
+  編集画面のテスト
+    表示の確認
+[31m      編集前のタイトルと感想がフォームに表示(セット)されている (FAILED - 14)[0m
+[31m      Update Bookボタンが表示される (FAILED - 15)[0m
+[31m      Showリンクが表示される (FAILED - 16)[0m
+[31m      Backリンクが表示される (FAILED - 17)[0m
+    リンクの遷移先の確認
+[31m      Showの遷移先は詳細画面か (FAILED - 18)[0m
+[31m      Backの遷移先は一覧画面か (FAILED - 19)[0m
+    更新処理に関するテスト
+[31m      更新に成功しサクセスメッセージが表示されるか (FAILED - 20)[0m
+[31m      更新に失敗しエラーメッセージが表示されるか (FAILED - 21)[0m
+[31m      更新後のリダイレクト先は正しいか (FAILED - 22)[0m
+
+Failures:
+
+  1) 投稿のテスト トップ画面(root_path)のテスト 表示の確認 トップ画面(root_path)に一覧ページへのリンクが表示されているか
+     [31mFailure/Error: expect(page).to have_link "", href: books_path[0m
+     [31m  expected to find link "" with href "/books" but there were no matches[0m
+     [36m# ./spec/system/books_spec.rb:11:in `block (4 levels) in <top (required)>'[0m
+
+  2) 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookの一覧表示(tableタグ)と投稿フォームが同一画面に表示されているか
+     [31mFailure/Error: expect(page).to have_selector 'table'[0m
+     [31m  expected to find css "table" but there were no matches[0m
+     [36m# ./spec/system/books_spec.rb:24:in `block (4 levels) in <top (required)>'[0m
+
+  3) 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか
+     [31mFailure/Error: expect(page).to have_content book.title[0m
+     [31m  expected to find text "hoge" in "Bookers\n　\nHome About Sign up Log in\nYou need to sign in or sign up before continuing.\nLog in\nName\nPassword\nRemember me\nSign up Forgot your password?"[0m
+     [36m# ./spec/system/books_spec.rb:35:in `block (5 levels) in <top (required)>'[0m
+     [36m# ./spec/system/books_spec.rb:33:in `each_with_index'[0m
+     [36m# ./spec/system/books_spec.rb:33:in `block (4 levels) in <top (required)>'[0m
+
+  4) 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 Create Bookボタンが表示される
+     [31mFailure/Error: expect(page).to have_button 'Create Book'[0m
+     [31m  expected to find button "Create Book" that is not disabled but there were no matches[0m
+     [36m# ./spec/system/books_spec.rb:52:in `block (4 levels) in <top (required)>'[0m
+
+  5) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に成功しサクセスメッセージが表示されるか
+     [31mFailure/Error: fill_in 'book[title]', with: Faker::Lorem.characters(number:5)[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find field "book[title]" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:91:in `fill_in'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+     [36m# ./spec/system/books_spec.rb:57:in `block (4 levels) in <top (required)>'[0m
+
+  6) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に失敗する
+     [31mFailure/Error: click_button 'Create Book'[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find button "Create Book" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:58:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+     [36m# ./spec/system/books_spec.rb:63:in `block (4 levels) in <top (required)>'[0m
+
+  7) 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿後のリダイレクト先は正しいか
+     [31mFailure/Error: fill_in 'book[title]', with: Faker::Lorem.characters(number:5)[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find field "book[title]" that is not disabled[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:91:in `fill_in'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+     [36m# ./spec/system/books_spec.rb:68:in `block (4 levels) in <top (required)>'[0m
+
+  8) 投稿のテスト 一覧画面のテスト book削除のテスト bookの削除
+     [31mFailure/Error: click_link 'Destroy'[0m
+     [31m[0m
+     [31mCapybara::ElementNotFound:[0m
+     [31m  Unable to find link "Destroy"[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:42:in `click_link'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+     [36m# ./spec/system/books_spec.rb:88:in `block (4 levels) in <top (required)>'[0m
+
+  9) 投稿のテスト 詳細画面のテスト 表示の確認 本のタイトルと感想が画面に表示されていること
+     [31mFailure/Error: visit book_path(book)[0m
+     [31m[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `book_path' for #<RSpec::ExampleGroups::Nested::Nested_2::Nested:0x0000000009b05d70>[0m
+     [36m# ./spec/system/books_spec.rb:97:in `block (3 levels) in <top (required)>'[0m
+
+  10) 投稿のテスト 詳細画面のテスト 表示の確認 Editリンクが表示される
+      [31mFailure/Error: visit book_path(book)[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `book_path' for #<RSpec::ExampleGroups::Nested::Nested_2::Nested:0x0000000009b40880>[0m
+      [36m# ./spec/system/books_spec.rb:97:in `block (3 levels) in <top (required)>'[0m
+
+  11) 投稿のテスト 詳細画面のテスト 表示の確認 Backリンクが表示される
+      [31mFailure/Error: visit book_path(book)[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `book_path' for #<RSpec::ExampleGroups::Nested::Nested_2::Nested:0x0000000009b83590>[0m
+      [36m# ./spec/system/books_spec.rb:97:in `block (3 levels) in <top (required)>'[0m
+
+  12) 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Editの遷移先は編集画面か
+      [31mFailure/Error: visit book_path(book)[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `book_path' for #<RSpec::ExampleGroups::Nested::Nested_2::Nested_2:0x0000000009ba5550>[0m
+      [36m# ./spec/system/books_spec.rb:97:in `block (3 levels) in <top (required)>'[0m
+
+  13) 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か
+      [31mFailure/Error: visit book_path(book)[0m
+      [31m[0m
+      [31mNoMethodError:[0m
+      [31m  undefined method `book_path' for #<RSpec::ExampleGroups::Nested::Nested_2::Nested_2:0x0000000009bc7a88>[0m
+      [36m# ./spec/system/books_spec.rb:97:in `block (3 levels) in <top (required)>'[0m
+
+  14) 投稿のテスト 編集画面のテスト 表示の確認 編集前のタイトルと感想がフォームに表示(セット)されている
+      [31mFailure/Error: expect(page).to have_field 'book[title]', with: book.title[0m
+      [31m  expected to find field "book[title]" that is not disabled but there were no matches[0m
+      [36m# ./spec/system/books_spec.rb:132:in `block (4 levels) in <top (required)>'[0m
+
+  15) 投稿のテスト 編集画面のテスト 表示の確認 Update Bookボタンが表示される
+      [31mFailure/Error: expect(page).to have_button 'Update Book'[0m
+      [31m  expected to find button "Update Book" that is not disabled but there were no matches[0m
+      [36m# ./spec/system/books_spec.rb:136:in `block (4 levels) in <top (required)>'[0m
+
+  16) 投稿のテスト 編集画面のテスト 表示の確認 Showリンクが表示される
+      [31mFailure/Error: expect(show_link.native.inner_text).to match(/show/i)[0m
+      [31m[0m
+      [31m  expected "Bookers" to match /show/i[0m
+      [31m  Diff:[0m[0m
+      [31m  [0m[34m@@ -1 +1 @@[0m
+      [31m  [0m[31m-/show/i[0m
+      [31m  [0m[32m+"Bookers"[0m
+      [31m  [0m[0m
+      [36m# ./spec/system/books_spec.rb:140:in `block (4 levels) in <top (required)>'[0m
+
+  17) 投稿のテスト 編集画面のテスト 表示の確認 Backリンクが表示される
+      [31mFailure/Error: expect(back_link.native.inner_text).to match(/back/i)[0m
+      [31m[0m
+      [31m  expected "Home" to match /back/i[0m
+      [31m  Diff:[0m[0m
+      [31m  [0m[34m@@ -1 +1 @@[0m
+      [31m  [0m[31m-/back/i[0m
+      [31m  [0m[32m+"Home"[0m
+      [31m  [0m[0m
+      [36m# ./spec/system/books_spec.rb:144:in `block (4 levels) in <top (required)>'[0m
+
+  18) 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Showの遷移先は詳細画面か
+      [31mFailure/Error: expect(current_path).to eq('/books/' + book.id.to_s)[0m
+      [31m[0m
+      [31m  expected: "/books/1"[0m
+      [31m       got: "/"[0m
+      [31m[0m
+      [31m  (compared using ==)[0m
+      [36m# ./spec/system/books_spec.rb:151:in `block (4 levels) in <top (required)>'[0m
+
+  19) 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か
+      [31mFailure/Error: expect(page).to have_current_path books_path[0m
+      [31m  expected "/" to equal "/books"[0m
+      [36m# ./spec/system/books_spec.rb:156:in `block (4 levels) in <top (required)>'[0m
+
+  20) 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に成功しサクセスメッセージが表示されるか
+      [31mFailure/Error: fill_in 'book[title]', with: Faker::Lorem.characters(number:5)[0m
+      [31m[0m
+      [31mCapybara::ElementNotFound:[0m
+      [31m  Unable to find field "book[title]" that is not disabled[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:91:in `fill_in'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+      [36m# ./spec/system/books_spec.rb:161:in `block (4 levels) in <top (required)>'[0m
+
+  21) 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に失敗しエラーメッセージが表示されるか
+      [31mFailure/Error: fill_in 'book[title]', with: ""[0m
+      [31m[0m
+      [31mCapybara::ElementNotFound:[0m
+      [31m  Unable to find field "book[title]" that is not disabled[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:91:in `fill_in'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+      [36m# ./spec/system/books_spec.rb:167:in `block (4 levels) in <top (required)>'[0m
+
+  22) 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新後のリダイレクト先は正しいか
+      [31mFailure/Error: fill_in 'book[title]', with: Faker::Lorem.characters(number:5)[0m
+      [31m[0m
+      [31mCapybara::ElementNotFound:[0m
+      [31m  Unable to find field "book[title]" that is not disabled[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:303:in `block in synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/base.rb:83:in `synchronize'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:292:in `synced_resolve'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/finders.rb:53:in `find'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/node/actions.rb:91:in `fill_in'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/session.rb:778:in `block (2 levels) in <class:Session>'[0m
+      [36m# /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/capybara-3.36.0/lib/capybara/dsl.rb:58:in `block (2 levels) in <module:DSL>'[0m
+      [36m# ./spec/system/books_spec.rb:173:in `block (4 levels) in <top (required)>'[0m
+
+Finished in 4.6 seconds (files took 3.98 seconds to load)
+[31m24 examples, 22 failures[0m
+
+Failed examples:
+
+[31mrspec ./spec/system/books_spec.rb:10[0m [36m# 投稿のテスト トップ画面(root_path)のテスト 表示の確認 トップ画面(root_path)に一覧ページへのリンクが表示されているか[0m
+[31mrspec ./spec/system/books_spec.rb:23[0m [36m# 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookの一覧表示(tableタグ)と投稿フォームが同一画面に表示されているか[0m
+[31mrspec ./spec/system/books_spec.rb:28[0m [36m# 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 bookのタイトルと感想を表示し、詳細・編集・削除のリンクが表示されているか[0m
+[31mrspec ./spec/system/books_spec.rb:51[0m [36m# 投稿のテスト 一覧画面のテスト 一覧の表示とリンクの確認 Create Bookボタンが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:56[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に成功しサクセスメッセージが表示されるか[0m
+[31mrspec ./spec/system/books_spec.rb:62[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿に失敗する[0m
+[31mrspec ./spec/system/books_spec.rb:67[0m [36m# 投稿のテスト 一覧画面のテスト 投稿処理に関するテスト 投稿後のリダイレクト先は正しいか[0m
+[31mrspec ./spec/system/books_spec.rb:86[0m [36m# 投稿のテスト 一覧画面のテスト book削除のテスト bookの削除[0m
+[31mrspec ./spec/system/books_spec.rb:100[0m [36m# 投稿のテスト 詳細画面のテスト 表示の確認 本のタイトルと感想が画面に表示されていること[0m
+[31mrspec ./spec/system/books_spec.rb:104[0m [36m# 投稿のテスト 詳細画面のテスト 表示の確認 Editリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:108[0m [36m# 投稿のテスト 詳細画面のテスト 表示の確認 Backリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:114[0m [36m# 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Editの遷移先は編集画面か[0m
+[31mrspec ./spec/system/books_spec.rb:119[0m [36m# 投稿のテスト 詳細画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か[0m
+[31mrspec ./spec/system/books_spec.rb:131[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 編集前のタイトルと感想がフォームに表示(セット)されている[0m
+[31mrspec ./spec/system/books_spec.rb:135[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 Update Bookボタンが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:138[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 Showリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:142[0m [36m# 投稿のテスト 編集画面のテスト 表示の確認 Backリンクが表示される[0m
+[31mrspec ./spec/system/books_spec.rb:148[0m [36m# 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Showの遷移先は詳細画面か[0m
+[31mrspec ./spec/system/books_spec.rb:153[0m [36m# 投稿のテスト 編集画面のテスト リンクの遷移先の確認 Backの遷移先は一覧画面か[0m
+[31mrspec ./spec/system/books_spec.rb:160[0m [36m# 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に成功しサクセスメッセージが表示されるか[0m
+[31mrspec ./spec/system/books_spec.rb:166[0m [36m# 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新に失敗しエラーメッセージが表示されるか[0m
+[31mrspec ./spec/system/books_spec.rb:172[0m [36m# 投稿のテスト 編集画面のテスト 更新処理に関するテスト 更新後のリダイレクト先は正しいか[0m
+
