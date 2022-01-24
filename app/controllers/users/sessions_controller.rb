@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  DELETE "/resource/sign_out"
+  # DELETE "/resource/sign_out"
   def destroy
     flash[:message] = "Log out successfully."
     redirect_to root_path
