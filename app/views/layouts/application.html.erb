@@ -11,11 +11,15 @@
 
   <body>
     <%= render 'components/header' %>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <div class="container-fluid" style="width: 1170px;">
-      <%= yield %>
-    </div>
+    <p id="notice">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </p>
+    <main>
+      <div class="container px-5 px-sm-0" style="width: 1170px;">
+        <%= yield %>
+      </div>  
+    </main>
   </body>
 </html>
