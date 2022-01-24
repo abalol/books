@@ -5,11 +5,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">　
+      <ul class="navbar-nav mr-auto">
       </ul>
 
       <ul class="navbar-nav">
-        
+
         <% if user_signed_in? %>
           <li class="nav-item">
               <%= link_to user_path(current_user.id), class: 'nav-link' do  %><i class="fas fa-home">Home</i><% end %>
